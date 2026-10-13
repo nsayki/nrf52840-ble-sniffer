@@ -1,0 +1,7 @@
+# Local packet captures
+captures/
+*.pcap
+*.pcapng
+
+# Runtime logs
+*.log
