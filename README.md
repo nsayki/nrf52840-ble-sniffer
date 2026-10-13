@@ -74,6 +74,22 @@ Source column filter matched 82 frames for a sampled source value.
 Local packet captures and runtime logs are excluded from Git. Keep captures in
 `captures/` when reproducing the setup.
 
+## Third-party software
+
+Nordic supplies the firmware and capture tools through its official downloads
+and nRF Util commands. Their own licenses apply separately to those components.
+The repository contains independently written setup and usage documentation;
+the Nordic binaries are downloaded directly from Nordic during setup.
+
+The installed `nrfutil-ble-sniffer` 0.21.0 package identifies its host-tool license
+as `LicenseRef-Nordic-1-Clause`, which restricts redistribution of that software.
+Inspect the installed package's `licenses.json` under
+`~/.nrfutil/share/nrfutil-ble-sniffer/` for the bundled license texts. Any license
+chosen for this repository's original documentation does not replace Nordic's
+licenses or apply to linked third-party material.
+
+[Nordic licensing documentation](https://docs.nordicsemi.com/r/bundle/nrfutil/page/readme.html/licenses)
+
 ## References
 
 - [Nordic sniffer setup](https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/lessons/lesson-6-bluetooth-le-sniffer/topic/nrf-sniffer-for-bluetooth-le/)

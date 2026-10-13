@@ -6,6 +6,21 @@ The verified workflow uses WSL for USB DFU programming and Windows for live
 capture. If the dongle already runs Nordic's sniffer firmware, skip the firmware
 programming steps and configure Windows Wireshark.
 
+## Prerequisites
+
+- A Nordic nRF52840 Dongle, **PCA10059**, with its existing USB DFU bootloader.
+- Windows with [WSL 2 and Ubuntu installed](https://learn.microsoft.com/windows/wsl/install).
+- An x86_64 Ubuntu environment for the Linux nRF Util executable used below.
+- Administrator access for sharing a USB device with usbipd-win.
+- Windows Wireshark and Windows nRF Util for the capture steps.
+
+In Ubuntu, install the tools used by this guide if they are missing:
+
+```bash
+sudo apt update
+sudo apt install curl usbutils
+```
+
 ## 1. Install tools in WSL
 
 Install the Linux x86_64 nRF Util executable:
@@ -18,7 +33,19 @@ curl --fail --location \
 chmod +x ~/.local/bin/nrfutil
 ```
 
-Ensure `~/.local/bin` is on `PATH`, then check and install the required commands:
+Add the executable directory to the current shell's search path:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+To keep this setting in future Bash sessions, add it once to `~/.bashrc`:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+```
+
+Check the executable and install the required commands:
 
 ```bash
 command -v nrfutil
@@ -58,6 +85,17 @@ lsusb
 ls -l /dev/ttyACM*
 nrfutil device list
 ```
+
+If serial access reports **Permission denied**, check the port's group with
+`ls -l /dev/ttyACM*`. On Ubuntu, grant your user access to the `dialout` group:
+
+```bash
+sudo usermod -aG dialout "$USER"
+newgrp dialout
+```
+
+`newgrp` opens a shell with the updated group membership. Retry the serial
+command in that shell; reopening the login session is another option.
 
 The bus ID and serial port can change when the USB device re-enumerates. Recheck
 the listing after entering bootloader mode and reattach that device if needed.
