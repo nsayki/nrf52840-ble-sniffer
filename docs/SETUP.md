@@ -2,16 +2,18 @@
 
 [Back to README](../README.md)
 
-The verified workflow uses WSL for USB DFU programming and Windows for live
-capture. If the dongle already runs Nordic's sniffer firmware, skip the firmware
+The verified CLI workflow uses WSL for USB DFU programming and Windows for live
+capture. You can also [program from Windows with Programmer](#alternative-program-from-windows-with-programmer)
+and continue with [Windows Wireshark configuration](#5-configure-windows-wireshark).
+If the dongle already runs Nordic's sniffer firmware, skip the firmware
 programming steps and configure Windows Wireshark.
 
 ## Prerequisites
 
 - A Nordic nRF52840 Dongle, **PCA10059**, with its existing USB DFU bootloader.
-- Windows with [WSL 2 and Ubuntu installed](https://learn.microsoft.com/windows/wsl/install).
-- An x86_64 Ubuntu environment for the Linux nRF Util executable used below.
-- Administrator access for sharing a USB device with usbipd-win.
+- For the WSL CLI route: Windows with [WSL 2 and Ubuntu installed](https://learn.microsoft.com/windows/wsl/install).
+- For the WSL CLI route: an x86_64 Ubuntu environment and administrator access for sharing USB devices with usbipd-win.
+- For the Windows programming route: [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop) with its Programmer app.
 - Windows Wireshark and Windows nRF Util for the capture steps.
 
 In Ubuntu, install the tools used by this guide if they are missing:
@@ -126,6 +128,12 @@ Use the PCA10059 dongle ZIP through USB DFU to preserve the existing bootloader.
 
 ## 4. Program through the existing USB bootloader
 
+![Simplified PCA10059 drawing showing the side-facing RESET SW2 and its press direction](images/dongle-reset.svg)
+
+*Original illustration of the button locations and press direction; components
+are not drawn to scale. See Nordic's [RESET instructions](https://academy.nordicsemi.com/flash-instructions-for-nrf52840-dongle/)
+for the hardware reference.*
+
 1. Press the side-facing RESET button, SW2, at the end opposite the USB connector.
 2. Check for the red LED fade/pulse pattern. The top-facing SW1 user button is different.
 3. Recheck `usbipd list` and attach the bootloader device to WSL if it re-enumerated.
@@ -154,6 +162,38 @@ After programming, the verified application appeared as **nRF Sniffer for
 Bluetooth LE**, USB ID `1915:522a`.
 
 [Nordic firmware programming guide](https://docs.nordicsemi.com/r/bundle/nrfutil/page/nrfutil-ble-sniffer/guides/requirements.html/programming-sniffer-firmware-using-nrfutil-device)
+
+### Alternative: program from Windows with Programmer
+
+This route uses the existing USB DFU bootloader directly from Windows. WSL and
+the Linux nRF Util installation are not required for this programming route.
+The Windows capture plugin is still configured in the next section.
+
+![Windows Programmer procedure: RESET, Select device, Add file, and Write](images/programmer-workflow.svg)
+
+*Procedure diagram, not a screenshot. The labels follow Nordic's Programmer
+workflow for the nRF52840 Dongle.*
+
+1. Download [Nordic's original sniffer 4.1.1 ZIP](https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-sniffer/sw/nrf_sniffer_for_bluetooth_le_4.1.1.zip)
+   and extract it with Windows File Explorer. Retain the included `LICENSE.txt`.
+2. Find `hex/sniffer_nrf52840dongle_nrf52840_4.1.1.hex` in the extracted package.
+   This is the PCA10059 image; the `nrf52840dk` image is for a different board.
+3. Stop any capture using the dongle. If it is attached to WSL, use `usbipd list`
+   and `usbipd detach --busid <BUSID>` from Windows PowerShell to return it to Windows.
+4. Open **nRF Connect for Desktop** and launch **Programmer**; install the app
+   from the Desktop launcher if it is missing.
+5. Press **RESET / SW2** and check that the red LED pulses. If the bootloader
+   re-enumerates, make sure that device remains available to Windows.
+6. Click **Select device** and choose the dongle's bootloader device.
+7. Click **Add file > Browse** and select the dongle HEX file.
+8. Click **Write** and wait for programming to finish. The dongle restarts and
+   may disappear from Programmer once it leaves bootloader mode; this is expected.
+
+Use the dongle image and the USB DFU **Write** operation to update the application
+while preserving the existing bootloader. This Windows method was also verified
+on the PCA10059 with firmware 4.1.1.
+
+[Nordic Programmer instructions for the dongle](https://docs.nordicsemi.com/r/bundle/nrf-connect-for-desktop/page/app/pc-nrfconnect-programmer/programming_nrf52840_dongle.html)
 
 ## 5. Configure Windows Wireshark
 

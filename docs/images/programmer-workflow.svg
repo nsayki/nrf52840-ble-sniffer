@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Program the nRF52840 Dongle from Windows using USB DFU</title>
+  <desc id="desc">Open the Programmer app in nRF Connect for Desktop. Press RESET SW2 for a pulsing red LED, select the dongle, add the PCA10059 sniffer HEX file, and use Write to program the application through the existing USB bootloader.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#7c91a9"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; }
+      .heading { font-size: 30px; font-weight: 700; fill: #152b46; }
+      .label { font-size: 20px; font-weight: 700; fill: #152b46; }
+      .body { font-size: 16px; fill: #52677f; }
+      .number { font-size: 19px; font-weight: 700; fill: #fff; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1200" height="380" rx="20" fill="#f3f7fc"/>
+  <text x="40" y="40" font-size="12" font-weight="700" letter-spacing="2" fill="#21789d">WINDOWS · nRF CONNECT FOR DESKTOP</text>
+  <text x="40" y="79" class="heading">Programmer: load the sniffer application over USB</text>
+  <text x="40" y="108" class="body">Keep the dongle connected to Windows and open the Programmer app.</text>
+  <g fill="#fff" stroke="#dce5ef" stroke-width="1.5">
+    <rect x="40" y="137" width="250" height="146" rx="14"/>
+    <rect x="330" y="137" width="250" height="146" rx="14"/>
+    <rect x="620" y="137" width="250" height="146" rx="14"/>
+    <rect x="910" y="137" width="250" height="146" rx="14"/>
+  </g>
+  <g fill="#21789d"><circle cx="71" cy="171" r="17"/><circle cx="361" cy="171" r="17"/><circle cx="651" cy="171" r="17"/><circle cx="941" cy="171" r="17"/></g>
+  <g class="number"><text x="71" y="178">1</text><text x="361" y="178">2</text><text x="651" y="178">3</text><text x="941" y="178">4</text></g>
+  <text x="62" y="216" class="label">RESET / SW2</text>
+  <text x="62" y="245" class="body">Enter bootloader mode.</text>
+  <text x="62" y="266" class="body">Check the pulsing red LED.</text>
+  <text x="352" y="216" class="label">Select device</text>
+  <text x="352" y="245" class="body">Choose the dongle</text>
+  <text x="352" y="266" class="body">from the device list.</text>
+  <text x="642" y="216" class="label">Add file → Browse</text>
+  <text x="642" y="245" class="body">Load the dongle HEX.</text>
+  <text x="642" y="266" class="body">Use the PCA10059 image.</text>
+  <text x="932" y="216" class="label">Write</text>
+  <text x="932" y="245" class="body">Wait for USB DFU to finish.</text>
+  <text x="932" y="266" class="body">The dongle then restarts.</text>
+  <g fill="none" stroke="#7c91a9" stroke-width="2.5" marker-end="url(#arrow)"><path d="M299 213H319"/><path d="M589 213H609"/><path d="M879 213H899"/></g>
+  <rect x="40" y="308" width="1120" height="44" rx="9" fill="#e6eef7"/>
+  <text x="61" y="336" font-family="Consolas, monospace" font-size="16" fill="#246389">sniffer_nrf52840dongle_nrf52840_4.1.1.hex</text>
+  <text x="674" y="336" class="body">Application update · Existing USB bootloader preserved</text>
+  <text x="40" y="373" font-size="12" fill="#657a91">Procedure diagram based on Nordic's dongle programming guide · This is an illustration, not a screenshot</text>
+</svg>

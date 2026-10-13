@@ -12,6 +12,12 @@
 6. Enter `btle` in the display filter bar and press **Enter**.
 7. Stop with the red capture stop button and save the capture as PCAPNG.
 
+![Real Nordic BLE capture opened in Wireshark with the btle display filter](images/wireshark-ble-capture.png)
+
+*The screenshot shows a saved capture from the verified setup. The green `btle`
+bar is the display filter; Source and Destination are columns in the packet list.
+The lower panes show the selected packet's protocol details and bytes.*
+
 To follow one advertiser, select it in Nordic's device list. To follow a new
 connection, select the peripheral before the connection starts and leave
 **Only advertising packets** disabled in the interface options. Display filters

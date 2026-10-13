@@ -5,13 +5,15 @@
 This repository documents a working setup using Nordic's ready-made **nRF Sniffer
 for Bluetooth LE** firmware and its official Wireshark capture plugin.
 
+![BLE devices, the PCA10059 dongle, Windows nRF Util, and Wireshark capture workflow](docs/images/capture-workflow.svg)
+
 ## Hardware and workflow
 
 | Component | Setup |
 | --- | --- |
 | Board | nRF52840 Dongle, PCA10059 |
 | Firmware | Nordic nRF Sniffer for Bluetooth LE 4.1.1 |
-| Firmware programming | USB DFU from WSL, preserving the existing bootloader |
+| Firmware programming | USB DFU using WSL nRF Util or Windows Programmer, preserving the existing bootloader |
 | Live capture | Windows Wireshark and the Windows `nrfutil ble-sniffer` plugin |
 | Capture interface | `nRF Sniffer for Bluetooth LE COM28` on the verified computer |
 
@@ -19,8 +21,8 @@ The dongle captures BLE traffic, Nordic's host tool reads it over USB serial, an
 Wireshark decodes the packets. The firmware is supplied by Nordic; an SDK or
 application build is not required for this workflow.
 
-A USB device attached to WSL is unavailable to Windows. Use WSL for firmware
-programming, then return the dongle to Windows for live capture.
+A USB device attached to WSL is unavailable to Windows. When programming from
+WSL, return the dongle to Windows before starting a live capture.
 
 ## Quick start
 
@@ -37,7 +39,14 @@ Restart Wireshark, select the **Default** profile, and start capturing on
 computer. Enter `btle` in the display filter bar to show Bluetooth LE packets.
 
 For a fresh installation or a dongle that needs programming, follow the setup
-guide first.
+guide first. A [Windows Programmer option](docs/SETUP.md#alternative-program-from-windows-with-programmer)
+is included alongside the WSL CLI instructions.
+
+![Wireshark displaying a verified Nordic BLE capture with the btle filter](docs/images/wireshark-ble-capture.png)
+
+*A real capture from the verified setup, opened in Wireshark with the `btle`
+display filter. Click the [full-size screenshot](docs/images/wireshark-ble-capture.png)
+to inspect the packet list and details.*
 
 ## Guides
 

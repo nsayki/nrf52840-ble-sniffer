@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440" viewBox="0 0 1100 440" role="img" aria-labelledby="title desc">
+  <title id="title">Enter the PCA10059 USB bootloader using RESET SW2</title>
+  <desc id="desc">Simplified top view of the nRF52840 Dongle with its USB contacts on the left and side-facing RESET SW2 at the far right. Press SW2 inward toward the USB connector. The red LED pulses in bootloader mode. The top-facing SW1 button is the user button.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#c44747"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; }
+      .body { font-size: 17px; fill: #52677f; }
+      .label { font-size: 18px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1100" height="440" rx="20" fill="#f3f7fc"/>
+  <text x="40" y="44" font-size="12" font-weight="700" letter-spacing="2" fill="#21789d">PCA10059 · USB DFU</text>
+  <text x="40" y="83" font-size="30" font-weight="700">Find the side-facing RESET button</text>
+  <text x="40" y="115" class="body">Push SW2 from the far end of the board toward the USB connector.</text>
+  <rect x="178" y="194" width="100" height="75" rx="5" fill="#277554" stroke="#1e5c44" stroke-width="2"/>
+  <g fill="#d8b04f"><rect x="188" y="204" width="62" height="10" rx="2"/><rect x="188" y="219" width="62" height="10" rx="2"/><rect x="188" y="234" width="62" height="10" rx="2"/><rect x="188" y="249" width="62" height="10" rx="2"/></g>
+  <rect x="267" y="181" width="409" height="100" rx="11" fill="#2b785d" stroke="#1e5c44" stroke-width="2"/>
+  <rect x="359" y="200" width="67" height="64" rx="5" fill="#213a35" stroke="#a0bfae"/>
+  <text x="392" y="229" text-anchor="middle" font-size="12" fill="#d5e8de">nRF</text>
+  <text x="392" y="247" text-anchor="middle" font-size="12" fill="#d5e8de">52840</text>
+  <g fill="#d9ba68"><circle cx="292" cy="191" r="3"/><circle cx="292" cy="272" r="3"/><circle cx="460" cy="191" r="3"/><circle cx="460" cy="272" r="3"/></g>
+  <rect x="568" y="208" width="45" height="45" rx="5" fill="#dfe5e9" stroke="#bccbd3"/>
+  <circle cx="590" cy="230" r="14" fill="#f9fbfc" stroke="#9caeb8" stroke-width="2"/>
+  <rect x="650" y="204" width="27" height="55" rx="3" fill="#dfe5e9"/>
+  <rect x="676" y="215" width="13" height="33" rx="3" fill="#fff" stroke="#a9b9c4" stroke-width="2"/>
+  <circle cx="539" cy="249" r="9" fill="#f07878" stroke="#ffd1d1" stroke-width="3"/>
+  <path d="M590 205V159H531" fill="none" stroke="#7c91a9" stroke-width="1.5"/>
+  <text x="463" y="153" class="label">SW1</text>
+  <text x="463" y="173" font-size="14" fill="#52677f">Top-facing user button</text>
+  <path d="M825 231H702" fill="none" stroke="#c44747" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="832" y="224" class="label" fill="#b63838">RESET / SW2</text>
+  <text x="832" y="249" font-size="15" fill="#52677f">Press inward</text>
+  <text x="178" y="305" font-size="16" fill="#52677f">USB contacts</text>
+  <path d="M539 261V300H666" fill="none" stroke="#c44747" stroke-width="1.5"/>
+  <text x="675" y="306" font-size="16" fill="#b63838">Red LED pulses in DFU mode</text>
+  <rect x="40" y="341" width="1020" height="60" rx="11" fill="#e6eef7"/>
+  <text x="65" y="378" class="body">Press RESET / SW2</text>
+  <text x="353" y="378" class="body">Check the red LED pulse</text>
+  <text x="714" y="378" class="body">Select the bootloader device</text>
+  <path d="M289 372H325M650 372H686" stroke="#7c91a9" stroke-width="2"/>
+  <text x="40" y="426" font-size="12" fill="#657a91">Original illustration · Simplified top view · Components are not drawn to scale</text>
+</svg>
