@@ -128,11 +128,13 @@ Use the PCA10059 dongle ZIP through USB DFU to preserve the existing bootloader.
 
 ## 4. Program through the existing USB bootloader
 
-![Simplified PCA10059 drawing showing the side-facing RESET SW2 and its press direction](images/dongle-reset.svg)
+<img src="images/nrf52840-dongle.webp" alt="Nordic nRF52840 Dongle PCA10059 with the round SW1 button and RESET SW2 below it" width="280">
 
-*Original illustration of the button locations and press direction; components
-are not drawn to scale. See Nordic's [RESET instructions](https://academy.nordicsemi.com/flash-instructions-for-nrf52840-dongle/)
-for the hardware reference.*
+*Nordic nRF52840 Dongle (PCA10059), with USB contacts at the top. RESET / SW2 is
+the side-facing switch below the round SW1 user button. Press RESET toward the
+USB connector. Photo: [Nordic Semiconductor](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle).
+See Nordic's [RESET instructions](https://academy.nordicsemi.com/flash-instructions-for-nrf52840-dongle/)
+for the press direction.*
 
 1. Press the side-facing RESET button, SW2, at the end opposite the USB connector.
 2. Check for the red LED fade/pulse pattern. The top-facing SW1 user button is different.
